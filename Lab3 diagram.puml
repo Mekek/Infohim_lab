@@ -1,0 +1,66 @@
+@startuml
+interface Interface.TryOn {
+~ void tryOn()
+}
+interface Interface.TakeOff {
+~ void takeOff()
+}
+abstract class Wigs.Wig {
+# String color
+# String type
+# String decoration
++ {abstract}void suit()
++ {abstract}String getColor()
+}
+class Wigs.BlackWig {
+# String color
+# String type
+# String decoration
++ void suit()
++ String getColor()
+}
+class People.Misa {
++ void see(String)
++ void takeOff()
+}
+enum Wigs.Color {
++  GOLD
++  RED
++  BLACK
+}
+class Wigs.GoldWig {
++ void suit()
++ String getColor()
+}
+class Main {
+}
+class People.FrekenSnork {
++ void see(String)
+}
+class Wigs.RedWig {
++ void suit()
++ String getColor()
+}
+abstract class People.Character {
+# String name
+# String location
+# String currentWig
++ String getName()
++ String getLocation()
++ {abstract}void see(String)
++ void say(String)
++ void go(String)
++ void implement(String)
++ void tryOn(Wig)
++ void takeOff()
+}
+
+
+Wigs.Wig <|-- Wigs.BlackWig
+Interface.TryOn <|.. People.Misa
+Interface.TakeOff <|.. People.Misa
+People.Character <|-- People.Misa
+Wigs.Wig <|-- Wigs.GoldWig
+People.Character <|-- People.FrekenSnork
+Wigs.Wig <|-- Wigs.RedWig
+@enduml
