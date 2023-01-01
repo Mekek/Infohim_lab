@@ -2,9 +2,13 @@ package Wigs;
 
 public class GoldWig extends Wig {
 
-    protected final String color = "иссиня-черный";
-    protected final String type = "локоны";
-    protected final String decoration = "золотые блестки";
+    public GoldWig() {
+        color = "иссиня-черный";
+        type = "локоны";
+        decoration = "золотые блестки";
+    }
+
+
 
     @Override
     public void suit() {

@@ -16,23 +16,34 @@ public abstract class Character {
     }
 
 
-    public abstract void see(String something);
+    public abstract void see(String something) throws NullException;
 
     public void say(String speech){
         System.out.println(getName() + " сказала: " + speech);
     }
-    public void go(String place){
-        System.out.println(getName() + " перешла в локацию: " + place);
-        location = place;
+    public void go(String place) throws CurrentLocationException, NullException {
+        if (place != null && place != "") {
+            if (location != place) {
+                System.out.println(getName() + " перешла в локацию: " + place);
+                location = place;
+            }
+            else {
+                throw new CurrentLocationException(name + " уже находится в этой локации!");
+            }
+        }
+        else throw new NullException("Передан пустой аргумент!");
+
     }
-    public void implement (String action){
-        System.out.println(getName() + " выполнила действие: " + action );
+    public void implement (String action) throws NullException {
+        if (action != null && action != "") {
+            System.out.println(getName() + " выполнила действие: " + action);
+        } else throw new NullException("Передан пустой аргумент!");
     }
 
     @Override
     public String toString() {
         return "Персонаж " + name +
-                " находится в локации: " + location;
+                " Находится в локации: " + location;
     }
 
     @Override

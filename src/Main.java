@@ -1,10 +1,17 @@
 import characters.*;
 import Wigs.*;
-import characters.Character;
+
 
 public class Main {
-    public static void main (String [] args){
+    public static void main (String [] args) throws NullException {
+
+//        try {
+//            Misa misa = new Misa("комната ћисы");
+//        } catch (IllegalArgumentException e) {
+//            System.out.println("Ќеверное количество аргументов");
+//        }
         Misa misa = new Misa("комната ћисы");
+
         FrekenSnork snork = new FrekenSnork("коридор");
         BlackWig blackWig = new BlackWig();
         GoldWig goldWig = new GoldWig();
@@ -17,23 +24,39 @@ public class Main {
         System.out.println(misa);
         System.out.println();
 
+        System.out.println("ѕроверка equals, hashCode, toString дл€ париков. ");
+        System.out.println(blackWig.equals(goldWig));
+        System.out.println(redWig.hashCode());
+        System.out.println(goldWig);
+        System.out.println();
+
 
         snork.see("узкую полоску света, пробивавшуюс€ сквозь полуоткрытую дверь.");
         snork.go("комната ћисы.");
-        misa.implement("сидеть на стуле.");
-        misa.tryOn(blackWig);
-        misa.see("себ€ в зеркало.");
-        blackWig.suit();
-        misa.implement("вздохнуть.");
-        misa.takeOff();
-        misa.tryOn(redWig);
-        redWig.suit();
-        misa.takeOff();
-        misa.tryOn(blackWig);
-        blackWig.suit();
-        misa.see("себ€ в зеркало.");
-        misa.takeOff();
-        misa.implement("уставитьс€ в пол.");
+        try {
+            snork.go("комната ћисы.");
+        }
+        catch (CurrentLocationException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            misa.implement("сидеть на стуле.");
+            misa.tryOn(blackWig);
+            misa.see("себ€ в зеркало.");
+            blackWig.suit();
+            misa.implement("вздохнуть.");
+            misa.takeOff();
+            misa.tryOn(redWig);
+            redWig.suit();
+            misa.takeOff();
+            misa.tryOn(blackWig);
+            blackWig.suit();
+            misa.see("себ€ в зеркало.");
+            misa.takeOff();
+            misa.implement("уставитьс€ в пол.");
+        } catch (CurrentLocationException | NullException e1) {
+            System.err.println(e1.getMessage());
+        }
 
 
     }

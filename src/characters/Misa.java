@@ -16,15 +16,17 @@ public class Misa extends Character implements TryOn, TakeOff {
     protected Color currentWig = Color.NOWIG;
 
     @Override
-    public void see(String something) {
-        System.out.println(getName() + "  посмотрела на " + something );
+    public void see(String something) throws NullException {
+        if (something != null && something != "") {
+            System.out.println(getName() + "  посмотрела на " + something);
+        } else throw new NullException("Передан пустой аргумент!");
     }
 
 
 
     public void tryOn(Wig wig){
         currentWig = Color.valueOf(wig.getColor());
-        System.out.println(getName() + " надела " + currentWig + " парик.");
+        System.out.println(getName() + " надела " + currentWig.getColor() + " парик.");
     }
 
     public void takeOff(){

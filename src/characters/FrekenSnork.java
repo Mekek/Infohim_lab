@@ -11,7 +11,9 @@ public class FrekenSnork extends Character{
 
 
     @Override
-    public void see(String something) {
-        System.out.println(getName() + "  увидела " + something );
+    public void see(String something) throws NullException {
+        if (something != null && something != "") {
+            System.out.println(getName() + "  посмотрела на " + something);
+        } else throw new NullException("ѕередан пустой аргумент!");
     }
 }
