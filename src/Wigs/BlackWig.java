@@ -5,7 +5,7 @@ public class BlackWig extends Wig{
     public BlackWig() {
         color = "иссиня-черный";
         type = "локоны";
-        decoration = "золотые блестки";
+        Closet.Shelf.loadWig();
     }
 
 

@@ -12,7 +12,7 @@ public class FrekenSnork extends Character{
 
     @Override
     public void see(String something) throws NullException {
-        if (something != null && something != "") {
+        if (something != null && !something.equals("")) {
             System.out.println(getName() + "  посмотрела на " + something);
         } else throw new NullException("Передан пустой аргумент!");
     }

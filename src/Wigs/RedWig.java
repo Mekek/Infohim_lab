@@ -5,7 +5,7 @@ public class RedWig extends Wig{
     public RedWig() {
         color = "иссиня-черный";
         type = "локоны";
-        decoration = "золотые блестки";
+        Closet.Shelf.loadWig();
     }
 
     @Override

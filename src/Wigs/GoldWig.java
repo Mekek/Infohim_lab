@@ -5,10 +5,8 @@ public class GoldWig extends Wig {
     public GoldWig() {
         color = "иссиня-черный";
         type = "локоны";
-        decoration = "золотые блестки";
+        Closet.Shelf.loadWig();
     }
-
-
 
     @Override
     public void suit() {

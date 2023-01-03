@@ -1,3 +1,4 @@
+import Interface.Existence;
 import characters.*;
 import Wigs.*;
 
@@ -5,17 +6,26 @@ import Wigs.*;
 public class Main {
     public static void main (String [] args) throws NullException {
 
-//        try {
-//            Misa misa = new Misa("комната Мисы");
-//        } catch (IllegalArgumentException e) {
-//            System.out.println("Неверное количество аргументов");
-//        }
+        Existence universe = new Existence() {
+            boolean existence = false;
+            @Override
+            public void exist() {
+                System.out.println("Создаём вселенную и начинаем повествование...");
+                existence = true;
+            }
+        };
+
+        universe.exist();
+
         Misa misa = new Misa("комната Мисы");
 
         FrekenSnork snork = new FrekenSnork("коридор");
         BlackWig blackWig = new BlackWig();
+        BlackWig.Decoration blackWigDecoration = blackWig.new Decoration();
+        blackWigDecoration.setDescription("золотые блестки");
         GoldWig goldWig = new GoldWig();
         RedWig redWig = new RedWig();
+        RedWig anotherRedWig = new RedWig();
         System.out.println();
 
         System.out.println("Проверка equals, hashCode, toString для персонажей. ");
@@ -25,9 +35,9 @@ public class Main {
         System.out.println();
 
         System.out.println("Проверка equals, hashCode, toString для париков. ");
-        System.out.println(blackWig.equals(goldWig));
+        System.out.println(redWig.equals(anotherRedWig));
         System.out.println(redWig.hashCode());
-        System.out.println(goldWig);
+        System.out.println(blackWig);
         System.out.println();
 
 
