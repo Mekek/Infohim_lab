@@ -3,9 +3,9 @@ package Wigs;
 import java.util.Objects;
 
 public abstract class Wig {
-    protected String color;
-    protected String type;
-    protected String decorationDescription;
+    private String color;
+    private String type;
+    private String decorationDescription;
 
     public class Decoration {
         public void setDescription(String textDescription) {
@@ -15,8 +15,18 @@ public abstract class Wig {
 
     }
 
+
+
     public abstract void suit();
     public abstract String getColor();
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     @Override
     public String toString() {

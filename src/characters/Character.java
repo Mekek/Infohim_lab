@@ -3,16 +3,24 @@ package characters;
 import java.util.Objects;
 
 public abstract class Character {
-    protected String name;
-    protected String location;
+    private String name;
+    private String location;
 
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getLocation() {
         return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
 
@@ -22,8 +30,8 @@ public abstract class Character {
         System.out.println(getName() + " сказала: " + speech);
     }
     public void go(String place) throws CurrentLocationException, NullException {
-        if (place != null && place != "") {
-            if (location != place) {
+        if (place != null && !place.equals("")) {
+            if (!location.equals(place)) {
                 System.out.println(getName() + " перешла в локацию: " + place);
                 location = place;
             }
@@ -35,7 +43,7 @@ public abstract class Character {
 
     }
     public void implement (String action) throws NullException {
-        if (action != null && action != "") {
+        if (action != null && !action.equals("")) {
             System.out.println(getName() + " выполнила действие: " + action);
         } else throw new NullException("Передан пустой аргумент!");
     }

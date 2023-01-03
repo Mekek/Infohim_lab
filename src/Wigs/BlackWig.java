@@ -3,8 +3,8 @@ package Wigs;
 public class BlackWig extends Wig{
 
     public BlackWig() {
-        color = "иссиня-черный";
-        type = "локоны";
+        setColor("иссиня-черный");
+        setType("локоны");
         Closet.Shelf.loadWig();
     }
 

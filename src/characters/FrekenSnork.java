@@ -3,9 +3,9 @@ package characters;
 public class FrekenSnork extends Character{
 
     public FrekenSnork(String location) {
-        this.location = location;
-        name = "Фрекен Снорк";
-        System.out.println(name + " появилась.");
+        setLocation(location);
+        setName("Фрекен Снорк");
+        System.out.println(getName() + " появилась в локации: " + getLocation() + ".");
     }
 
 

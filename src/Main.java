@@ -67,7 +67,5 @@ public class Main {
         } catch (CurrentLocationException | NullException e1) {
             System.err.println(e1.getMessage());
         }
-
-
     }
 }

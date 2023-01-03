@@ -8,12 +8,10 @@ import Wigs.Wig;
 
 public class Misa extends Character implements TryOn, TakeOff {
     public Misa (String location) {
-        this.location = location;
-        name = "ћиса";
-        System.out.println(name + " вошла в повествование.");
+        setLocation(location);
+        setName("ћиса");
+        System.out.println(getName() + " вошла в повествование и по€вилась в локации: " + getLocation() + ".");
     }
-
-
     protected Color currentWig = Color.NOWIG;
 
     @Override
