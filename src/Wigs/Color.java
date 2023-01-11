@@ -4,7 +4,7 @@ public enum Color {
     GOLD ("Золотистый"),
     RED ("Рыжий"),
     BLACK ("Иссиня-черный"),
-    NOWIG ("Вообржаемый (отсутствующий)");
+    NORMAL ("Обычный");
 
     Color (String color) {
         this.color = color;

@@ -1,7 +1,7 @@
 package Wigs;
 
 public class Closet {
-    public static  class Shelf {
+    public static class Shelf { //Static nested class
         private static int amountOfClothes;
 
         public static void loadWig() {

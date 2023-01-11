@@ -1,5 +1,7 @@
 package characters;
 
+import java.util.Objects;
+
 public class FrekenSnork extends Character{
 
     public FrekenSnork(String location) {
@@ -8,12 +10,45 @@ public class FrekenSnork extends Character{
         System.out.println(getName() + " по€вилась в локации: " + getLocation() + ".");
     }
 
+    @Override
+    public void see(String something, boolean closerLook) throws NullException {
+        if (something != null && !something.equals("")) {
+            System.out.println(getName() + "  увидела " + something);
+        } else throw new NullException("ѕередан пустой аргумент!");
+    }
 
+    public void go(String place) throws CurrentLocationException, NullException {
+
+        if (place != null && !place.equals("")) {
+            if (!getLocation().equals(place)) {
+                System.out.println(getName() + " вошла на цыпочках в помещение: " + place);
+                setLocation(place);
+            }
+            else {
+                throw new CurrentLocationException(getName() + " уже находитс€ в этой локации!");
+            }
+        }
+        else throw new NullException("ѕередан пустой аргумент!");
+
+    }
 
     @Override
-    public void see(String something) throws NullException {
-        if (something != null && !something.equals("")) {
-            System.out.println(getName() + "  посмотрела на " + something);
-        } else throw new NullException("ѕередан пустой аргумент!");
+    public String toString() {
+        return "ѕерсонаж " + getName() +
+                " Ќаходитс€ в локации: " + getLocation();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Character person = (Character) o;
+//        return getName().equals(person.getName());
+        return getName().equals(person.getName()) && getLocation().equals(person.getLocation());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getLocation());
     }
 }

@@ -6,7 +6,7 @@ import Wigs.*;
 public class Main {
     public static void main (String [] args) throws NullException {
 
-        Existence universe = new Existence() {
+        Existence universe = new Existence() { // Anonymous class
             boolean existence = false;
             @Override
             public void exist() {
@@ -20,12 +20,13 @@ public class Main {
         Misa misa = new Misa("комната ћисы");
 
         FrekenSnork snork = new FrekenSnork("коридор");
-        BlackWig blackWig = new BlackWig();
-        BlackWig.Decoration blackWigDecoration = blackWig.new Decoration();
+
+        Wig blackWig = new Wig("черный", "локоны");
+        Wig.Decoration blackWigDecoration = blackWig.new Decoration();
         blackWigDecoration.setDescription("золотые блестки");
-        GoldWig goldWig = new GoldWig();
-        RedWig redWig = new RedWig();
-        RedWig anotherRedWig = new RedWig();
+        Wig goldWig = new Wig("золотистый", "пр€мые");
+        Wig redWig = new Wig("рыжий", "кудри");
+        Wig anotherRedWig = new Wig("рыжий", "кудри");
         System.out.println();
 
         System.out.println("ѕроверка equals, hashCode, toString дл€ персонажей. ");
@@ -41,7 +42,7 @@ public class Main {
         System.out.println();
 
 
-        snork.see("узкую полоску света, пробивавшуюс€ сквозь полуоткрытую дверь.");
+        snork.see("узкую полоску света, пробивавшуюс€ сквозь полуоткрытую дверь.", false);
         snork.go("комната ћисы.");
         try {
             snork.go("комната ћисы.");
@@ -52,7 +53,7 @@ public class Main {
         try {
             misa.implement("сидеть на стуле.");
             misa.tryOn(blackWig);
-            misa.see("себ€ в зеркало.");
+            misa.see("себ€ в зеркало.", false);
             blackWig.suit();
             misa.implement("вздохнуть.");
             misa.takeOff();
@@ -61,7 +62,7 @@ public class Main {
             misa.takeOff();
             misa.tryOn(blackWig);
             blackWig.suit();
-            misa.see("себ€ в зеркало.");
+            misa.see("себ€ в зеркало.", true);
             misa.takeOff();
             misa.implement("уставитьс€ в пол.");
         } catch (CurrentLocationException | NullException e1) {
